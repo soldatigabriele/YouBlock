@@ -9,9 +9,9 @@ if NOT %errorLevel% == 0 (
 )
 
 echo Sei sicuro di voler resettare le password?
-set /P _confirm=  Per confermare scrivi "reset" senza le virgolette: 
+set /P _confirm=  Per confermare inserisci la password: 
 
-if "%_confirm%"=="reset" GOTO :reset
+if "%_confirm%"=="resettiamolepassword" GOTO :reset
 
 :reset
     del "C:\Windows\System32\drivers\etc\youblock_tokens" >NUL

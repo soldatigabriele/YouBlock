@@ -19,6 +19,7 @@ GOTO :end
 	if NOT exist "C:\Windows\System32\drivers\etc\youblock_tokens" (
 		REM TODO Check if this is the right path to acces bin file
 		copy "%~dp0%\bin" "C:\Windows\System32\drivers\etc\youblock_tokens" >NUL
+		del "%~dp0%\bin" >NUL
 	)
 	if NOT exist "C:\Windows\System32\drivers\etc\hosts_backup" (
 		echo Blocchiamolo!

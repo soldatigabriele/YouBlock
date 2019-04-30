@@ -13,7 +13,7 @@ REM MD5 Checker
 set "plaintext=%~1"
 set "file=%temp%\%~n0.tmp"
 set md5=
-if not defined plaintext set /P "plaintext= Password: "
+set /P "plaintext= Password: "
 if exist "%plaintext%" (
     set "file=%plaintext%"
 )
