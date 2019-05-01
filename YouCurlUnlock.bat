@@ -1,4 +1,4 @@
-@echo off & setlocal
+@echo off
 
 REM REM Check the script has been run as admin
 REM net session >nul 2>&1
@@ -8,14 +8,43 @@ REM     PAUSE
 REM     exit 0
 REM )
 
-curl https://elefante.gq/validate_youblock -o "file_#1.txt"
+rem set input = http://validatetoken.tk/validate?password=test_token
+rem rem echo making the request?
+rem curl -s -o /dev/null -i -w "%{http_code}" http://validatetoken.tk/validate?password=test_token
+rem rem echo this is %response%
 
-curl -s -o /dev/null -w "%{http_code}" http://www.example.org/
-REM  this should make a HEAD request
-curl -s -o /dev/null -I -w "%{http_code}" http://www.example.org/
-REM  this should make a GET request
-curl -s -o /dev/null -i -w "%{http_code}" http://www.example.org/
 
+set site=www.validatetoken.tk/validate?password=solio_vide_il
+set file=so.log
+set code="%{http_code}\\n"
+del /Q %file%
+for /L %%r in (1,1,1) do curl -s -o %file% -I %site%
+set match=false
+echo %match%
+
+for /f "usebackq delims=" %%a in (%file%) do (
+	if "%%a"=="HTTP/1.1 403 Forbidden" (
+		echo match found 1
+		set match=true
+
+	)
+)
+
+if %match%==true (
+	echo "matching!"
+)
+
+pause
+
+
+rem curl -s -o -i -w "%{http_code}" www.validatetoken.tk/validate?password=test_token >> %file%
+
+rem For /F %%A In ('curl -s -o -i -w "%{http_code}" www.validatetoken.tk/validate?password=test_token') Do Set "test=%%~A"
+rem If /I "%test%"=="failed" (
+rem 	echo "failed"
+rem ) else (
+rem 	echo "%test%"
+rem )
 
 REM REM TODO check if it's "%~1" or %~1 without double quotes or %~1%
 REM IF "%md5%"=="%~1" GOTO :password_corretta %~1
