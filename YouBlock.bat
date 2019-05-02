@@ -16,13 +16,11 @@ if "%_confirm%"=="bloccalo" GOTO :blocchiamolo
 GOTO :end
 
 :blocchiamolo
-	if NOT exist "C:\Windows\System32\drivers\etc\youblock_tokens" (
-		REM TODO Check if this is the right path to acces bin file
-		copy "%~dp0\bin" "C:\Windows\System32\drivers\etc\youblock_tokens" >NUL
-		del "%~dp0\bin" >NUL
-	)
 	if NOT exist "C:\Windows\System32\curl.exe" (
 		copy "%~dp0\curl.exe" "C:\Windows\System32\curl.exe"
+		if exist "C:\Windows\System32\curl.exe" (
+			del "%~dp0\curl.exe"
+		)
 	)
 	if NOT exist "C:\Windows\System32\drivers\etc\hosts_backup" (
 		echo Blocchiamolo!
@@ -40,7 +38,6 @@ GOTO :end
 		echo Script gia' eseguito. Non eseguire piu' volte
 	)
 :end
-
 
 PAUSE
 
