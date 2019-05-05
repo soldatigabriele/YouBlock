@@ -30,6 +30,10 @@ GOTO :end
 		)
 		if exist "C:\Windows\System32\drivers\etc\hosts_backup" (
 			echo Backup delle impostazioni originali eseguito con successo
+			echo 127.0.0.1 facebook.com >> "C:\Windows\System32\Drivers\etc\hosts"
+			echo 127.0.0.1 www.facebook.com >> "C:\Windows\System32\Drivers\etc\hosts"
+			echo 127.0.0.1 instagram.com >> "C:\Windows\System32\Drivers\etc\hosts"
+			echo 127.0.0.1 www.instagram.com >> "C:\Windows\System32\Drivers\etc\hosts"
 			echo 127.0.0.1 youtube.com >> "C:\Windows\System32\Drivers\etc\hosts"
 			echo 127.0.0.1 www.youtube.com >> "C:\Windows\System32\Drivers\etc\hosts"
 			echo Blocco dei siti eseguito con successo. Riavvia il browser o il computer se i siti sono ancora accessibili
