@@ -8,7 +8,7 @@ This batch script for windows adds the `youtube.com` domain to the hosts file, m
 
 2 - Follow the instructions on video.
 
-3 - Restart the browser or the pc the websites are still accessible.
+3 - Restart the browser or the pc if the websites are still accessible.
 
 ---
 
@@ -17,4 +17,4 @@ This batch script for windows adds the `youtube.com` domain to the hosts file, m
 
 2 - Insert the password
 
-3 - Restart the browser or the pc the websites are still inaccessible.
+3 - Restart the browser or the pc if the websites are still inaccessible.
